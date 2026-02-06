@@ -1,0 +1,27 @@
+package ua.opnu;
+
+
+import ua.opnu.service.DatabaseQueryService;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            DatabaseQueryService queryService = new DatabaseQueryService();
+
+            System.out.println("Max Salary Workers:");
+            queryService.findMaxSalaryWorker().forEach(System.out::println);
+
+            System.out.println("\nLongest Projects:");
+            queryService.findLongestProject().forEach(System.out::println);
+
+            System.out.println("\nMax Projects Count Client:");
+            queryService.findMaxProjectsClient().forEach(System.out::println);
+
+            System.out.println("\n=== Youngest and Eldest Workers ===");
+            queryService.findYoungestEldestWorkers().forEach(System.out::println);
+
+        } catch (Exception e) {
+            System.err.println(" Error Occurred" + e.getMessage());
+        }
+    }
+}
